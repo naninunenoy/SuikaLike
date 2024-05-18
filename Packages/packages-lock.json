@@ -23,6 +23,15 @@
       "dependencies": {},
       "hash": "fbe0bf85155f42f8832205f7b3ac3df571ada33e"
     },
+    "com.kyub.emojisearch": {
+      "version": "https://github.com/mingos/com.kyub.emojisearch.git?path=/Assets/KyubEmojiSearchAPI",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.textmeshpro": "1.3.0"
+      },
+      "hash": "b248871799016d577244e57101f903224a158552"
+    },
     "com.neon-izm.tmpro-fonts-rude": {
       "version": "https://github.com/neon-izm/UnityTextMeshProNotoSansForRude.git#upm",
       "depth": 0,
