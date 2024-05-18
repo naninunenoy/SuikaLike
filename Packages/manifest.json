@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.cysharp.csprojmodifier": "1.2.1",
     "com.cysharp.r3": "1.1.11",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.unity.collab-proxy": "2.3.1",
