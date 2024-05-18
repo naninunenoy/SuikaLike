@@ -48,3 +48,6 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  startupLifetimeScope: {fileID: 5817663768372704711, guid: 865dc69514ead3d438b402c31fc89f09, type: 3}
+  titleLifetimeScope: {fileID: 5188111614104068599, guid: 886509b2c0602bb48aed7ca2c6e13fd2, type: 3}
+  gameLifetimeScope: {fileID: 3266031495091037133, guid: a20a3fd7a06b2fd47bfca641e376b339, type: 3}

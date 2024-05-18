@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 329f767fc282e4646b71f9ebcc53f521
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - boxPrefab: {instanceID: 0}
+  - suikaPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
