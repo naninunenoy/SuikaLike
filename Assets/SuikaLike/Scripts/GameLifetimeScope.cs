@@ -3,7 +3,7 @@ using UnityEngine.Assertions;
 using VContainer;
 using VContainer.Unity;
 
-namespace SuikaLike.LifetimeScopes
+namespace SuikaLike
 {
     public class GameLifetimeScope : LifetimeScope
     {
@@ -15,6 +15,9 @@ namespace SuikaLike.LifetimeScopes
             Debug.Log($"entry {nameof(GameLifetimeScope)}#{GetHashCode():x8}#Configure");
             Assert.IsNotNull(boxPrefab);
             Assert.IsNotNull(suikaPrefab);
+
+            Instantiate(boxPrefab);
+            Instantiate(suikaPrefab);
         }
     }
 }
