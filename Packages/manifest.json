@@ -3,6 +3,7 @@
     "com.cysharp.csprojmodifier": "1.2.1",
     "com.cysharp.r3": "1.1.11",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+    "com.neon-izm.tmpro-fonts-rude": "https://github.com/neon-izm/UnityTextMeshProNotoSansForRude.git#upm",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.2d": "2.0.0",
     "com.unity.ide.rider": "3.0.28",
