@@ -2,12 +2,13 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace SuikaLike;
-
-public class RootLifetimeScope : LifetimeScope
+namespace SuikaLike
 {
-    protected override void Configure(IContainerBuilder builder)
+    public class RootLifetimeScope : LifetimeScope
     {
-        Debug.Log("entry");
+        protected override void Configure(IContainerBuilder builder)
+        {
+            Debug.Log("entry");
+        }
     }
 }
