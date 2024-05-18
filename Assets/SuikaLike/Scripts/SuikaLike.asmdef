@@ -1,0 +1,21 @@
+{
+    "name": "SuikaLike",
+    "rootNamespace": "SuikaLike",
+    "references": [
+        "UniTask",
+        "R3.Unity",
+        "VContainer",
+        "VitalRouter"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        ""
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
