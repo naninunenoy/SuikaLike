@@ -1,1 +1,1 @@
-{"AdditionalImports":[{"Path":"SuikaLike.DesignTime.props","Position":0}],"AdditionalImportsAdditionalProjects":["SuikaLike.csproj"],"EnableAddAnalyzerReferences":false,"AddAnalyzerReferencesAdditionalProjects":[]}
+{"AdditionalImports":[{"Path":"LangVersion.props","Position":0}],"AdditionalImportsAdditionalProjects":["SuikaLike.csproj"],"EnableAddAnalyzerReferences":false,"AddAnalyzerReferencesAdditionalProjects":[]}
