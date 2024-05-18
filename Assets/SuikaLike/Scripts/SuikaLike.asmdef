@@ -5,7 +5,8 @@
         "UniTask",
         "R3.Unity",
         "VContainer",
-        "VitalRouter"
+        "VitalRouter",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
