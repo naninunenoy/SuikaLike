@@ -43,6 +43,21 @@ public static class SuikaTypeExtensions
         };
     }
 
+    public static int GetScore(this SuikaType type)
+    {
+        return type switch
+        {
+            SuikaType.Smallest => 0,
+            SuikaType.Tiny => 1,
+            SuikaType.Normal => 3,
+            SuikaType.Large => 5,
+            SuikaType.Huge => 10,
+            SuikaType.Gigantic => 20,
+            SuikaType.Biggest => 50,
+            _ => 0,
+        };
+    }
+
     public static bool TryGetNextEvolution(this SuikaType type, out SuikaType nextType)
     {
         nextType = type switch

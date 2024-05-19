@@ -6,7 +6,8 @@
         "R3.Unity",
         "VContainer",
         "VitalRouter",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Kyub.EmojiSearch"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

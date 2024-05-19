@@ -12,6 +12,7 @@ namespace SuikaLike
         [SerializeField] GameObject boxPrefab;
         [SerializeField] GameObject suikaPrefab;
         [SerializeField] GameObject mouseObserverPrefab;
+        [SerializeField] GameObject suikaViewPrefab;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -19,16 +20,20 @@ namespace SuikaLike
             Assert.IsNotNull(boxPrefab);
             Assert.IsNotNull(boxPrefab);
             Assert.IsNotNull(mouseObserverPrefab);
+            Assert.IsNotNull(suikaViewPrefab);
             var mainCamera = Camera.main;
             Assert.IsNotNull(mainCamera);
+            var canvas = Object.FindAnyObjectByType<Canvas>();
+            Assert.IsNotNull(canvas);
 
             builder.RegisterVitalRouter(routing =>
             {
                 routing.Map<SuikaSpawnPresenter>();
                 routing.Map<SuikaCollisionPresenter>().AsSelf().AsImplementedInterfaces();
+                routing.Map<SuikaScorePresenter>();
             });
 
-            var box = Container.Instantiate(boxPrefab, transform);
+            var box = Object.Instantiate(boxPrefab, transform);
             builder.RegisterInstance(new GameEntryPointParameter
             {
                 MainCamera = mainCamera,
@@ -36,6 +41,9 @@ namespace SuikaLike
                 MouseObserverPrefab = mouseObserverPrefab,
                 BoxTransform = box.transform,
             });
+
+            var view = Object.Instantiate(suikaViewPrefab, canvas.transform);
+            builder.RegisterInstance<ISuikaViewRenderer>(view.GetComponentInChildren<SuikaView>());
 
             builder.Register<IPointerCommandPublisher, SuikaController>(Lifetime.Scoped);
             builder.Register<ISuikaFactory, SuikaFactory>(Lifetime.Scoped);

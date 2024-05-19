@@ -13,9 +13,11 @@ namespace SuikaLike
         [Inject] readonly LifetimeScope _lifetimeScope;
         [Inject] readonly ICollisionCalculator _collisionCalculator;
         [Inject] readonly GameEntryPointParameter _param;
+        [Inject] readonly ISuikaViewRenderer _viewRenderer;
 
         public UniTask StartAsync(CancellationToken cancellation)
         {
+            _viewRenderer.SetScore(0);
             _ = _resolver.Instantiate(_param.MouseObserverPrefab, _lifetimeScope.transform);
             return UniTask.CompletedTask;
         }
