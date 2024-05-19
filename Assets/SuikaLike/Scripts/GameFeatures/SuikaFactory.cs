@@ -9,11 +9,18 @@ public class SuikaFactory : ISuikaFactory
     [Inject] readonly IObjectResolver _resolver;
     [Inject] readonly GameEntryPointParameter _param;
 
-    public (SuikaId id, GameObject suika) SpawnSuika(Vector2 position)
+    public SuikaObject SpawnSuikaOf(SuikaType type, Vector2 position, long currentFrame)
     {
-        var suika = _resolver.Instantiate(_param.SuikaPrefab, position, Quaternion.identity, _param.BoxTransform);
-        var suikaId = new SuikaId(suika.GetHashCode());
-        suika.name = $"suika#{suikaId.Value:x8}";
-        return (suikaId, suika);
+        var suikaGa = _resolver.Instantiate(_param.SuikaPrefab, position, Quaternion.identity, _param.BoxTransform);
+        var suikaCmp = suikaGa.GetComponent<SuikaComponent>();
+        var suikaId = new SuikaId(suikaGa.GetHashCode());
+        suikaGa.name = $"{type}#{suikaId.Value:x8}";
+        suikaCmp.Text.text = type.GetEmoji();
+        var size = type.GetSize();
+        suikaGa.transform.localScale = new Vector3(size, size, 1.0f);
+        return new SuikaObject
+        {
+            GameObject = suikaGa, Id = suikaId, Type = type, SpawnFrame = currentFrame,
+        };
     }
 }

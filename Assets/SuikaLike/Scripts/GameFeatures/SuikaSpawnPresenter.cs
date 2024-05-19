@@ -1,5 +1,7 @@
-﻿using VContainer;
+﻿using System;
+using VContainer;
 using VitalRouter;
+using Random = UnityEngine.Random;
 
 namespace SuikaLike.GameFeatures;
 
@@ -10,6 +12,7 @@ public partial class SuikaSpawnPresenter
 
     public void __DontCallMe(PointerUpCommand command)
     {
-        var (_, _) = _factory.SpawnSuika(command.Position);
+        var randomType = (SuikaType)Random.Range(0, Enum.GetNames(typeof(SuikaType)).Length);
+        _ = _factory.SpawnSuikaOf(randomType, command.Position, command.Frame);
     }
 }

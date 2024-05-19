@@ -4,5 +4,5 @@ namespace SuikaLike.GameFeatures;
 
 public interface ISuikaFactory
 {
-    (SuikaId id, GameObject suika) SpawnSuika(Vector2 position);
+    SuikaObject SpawnSuikaOf(SuikaType type, Vector2 position, long currentFrame);
 }
