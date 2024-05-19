@@ -5,5 +5,5 @@ namespace SuikaLike.GameFeatures;
 public interface ISuikaFactory
 {
     SuikaType GetNextSuika();
-    SuikaObject SpawnSuika(SuikaType type, Vector2 position, long currentFrame);
+    SuikaObject SpawnSuika(SuikaType type, Vector2 position);
 }

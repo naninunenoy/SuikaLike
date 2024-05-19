@@ -25,6 +25,7 @@ namespace SuikaLike
             builder.RegisterVitalRouter(routing =>
             {
                 routing.Map<SuikaSpawnPresenter>();
+                routing.Map<SuikaCollisionPresenter>().AsSelf().AsImplementedInterfaces();
             });
 
             var box = Container.Instantiate(boxPrefab, transform);
@@ -38,6 +39,7 @@ namespace SuikaLike
 
             builder.Register<IPointerCommandPublisher, SuikaController>(Lifetime.Scoped);
             builder.Register<ISuikaFactory, SuikaFactory>(Lifetime.Scoped);
+            builder.Register<SuikaContainer>(Lifetime.Scoped).AsSelf().AsImplementedInterfaces();
 
             builder.RegisterEntryPoint<GameEntryPoint>();
         }

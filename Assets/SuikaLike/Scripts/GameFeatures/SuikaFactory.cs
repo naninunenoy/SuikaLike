@@ -16,7 +16,7 @@ public class SuikaFactory : ISuikaFactory
         return (SuikaType)_random.GetRange(0, NormalValue + 1);
     }
 
-    public SuikaObject SpawnSuika(SuikaType type, Vector2 position, long currentFrame)
+    public SuikaObject SpawnSuika(SuikaType type, Vector2 position)
     {
         var suikaGo = _resolver.Instantiate(_param.SuikaPrefab, position, Quaternion.identity, _param.BoxTransform);
         var suikaCmp = suikaGo.GetComponent<SuikaComponent>();
@@ -28,7 +28,7 @@ public class SuikaFactory : ISuikaFactory
         suikaGo.name = $"{emoji}#{suikaId.Value:x8}";
         return new SuikaObject
         {
-            GameObject = suikaGo, Id = suikaId, Type = type, SpawnFrame = currentFrame,
+            GameObject = suikaGo, Id = suikaId, Type = type
         };
     }
 }

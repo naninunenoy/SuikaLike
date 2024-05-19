@@ -1,7 +1,5 @@
-﻿using System;
-using VContainer;
+﻿using VContainer;
 using VitalRouter;
-using Random = UnityEngine.Random;
 
 namespace SuikaLike.GameFeatures;
 
@@ -9,9 +7,11 @@ namespace SuikaLike.GameFeatures;
 public partial class SuikaSpawnPresenter
 {
     [Inject] readonly ISuikaFactory _factory;
+    [Inject] readonly SuikaContainer _container;
 
     public void __DontCallMe(PointerUpCommand command)
     {
-        _ = _factory.SpawnSuika(_factory.GetNextSuika(), command.Position, command.Frame);
+        var suika = _factory.SpawnSuika(_factory.GetNextSuika(), command.Position);
+        _container.Add(suika);
     }
 }
