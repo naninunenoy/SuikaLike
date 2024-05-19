@@ -6,21 +6,29 @@ namespace SuikaLike.GameFeatures;
 
 public class SuikaFactory : ISuikaFactory
 {
+    const int NormalValue = (int)SuikaType.Normal;
+    [Inject] readonly IRandomValueProvider _random;
     [Inject] readonly IObjectResolver _resolver;
     [Inject] readonly GameEntryPointParameter _param;
 
-    public SuikaObject SpawnSuikaOf(SuikaType type, Vector2 position, long currentFrame)
+    public SuikaType GetNextSuika()
     {
-        var suikaGa = _resolver.Instantiate(_param.SuikaPrefab, position, Quaternion.identity, _param.BoxTransform);
-        var suikaCmp = suikaGa.GetComponent<SuikaComponent>();
-        var suikaId = new SuikaId(suikaGa.GetHashCode());
-        suikaGa.name = $"{type}#{suikaId.Value:x8}";
-        suikaCmp.Text.text = type.GetEmoji();
+        return (SuikaType)_random.GetRange(0, NormalValue + 1);
+    }
+
+    public SuikaObject SpawnSuika(SuikaType type, Vector2 position, long currentFrame)
+    {
+        var suikaGo = _resolver.Instantiate(_param.SuikaPrefab, position, Quaternion.identity, _param.BoxTransform);
+        var suikaCmp = suikaGo.GetComponent<SuikaComponent>();
+        var suikaId = new SuikaId(suikaGo.GetHashCode());
+        var emoji = type.GetEmoji();
+        suikaCmp.Text.text = emoji;
         var size = type.GetSize();
-        suikaGa.transform.localScale = new Vector3(size, size, 1.0f);
+        suikaGo.transform.localScale = new Vector3(size, size, 1.0f);
+        suikaGo.name = $"{emoji}#{suikaId.Value:x8}";
         return new SuikaObject
         {
-            GameObject = suikaGa, Id = suikaId, Type = type, SpawnFrame = currentFrame,
+            GameObject = suikaGo, Id = suikaId, Type = type, SpawnFrame = currentFrame,
         };
     }
 }

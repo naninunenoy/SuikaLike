@@ -12,7 +12,6 @@ public partial class SuikaSpawnPresenter
 
     public void __DontCallMe(PointerUpCommand command)
     {
-        var randomType = (SuikaType)Random.Range(0, Enum.GetNames(typeof(SuikaType)).Length);
-        _ = _factory.SpawnSuikaOf(randomType, command.Position, command.Frame);
+        _ = _factory.SpawnSuika(_factory.GetNextSuika(), command.Position, command.Frame);
     }
 }
