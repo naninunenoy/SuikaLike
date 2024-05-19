@@ -11,19 +11,18 @@ public class SuikaController : IPointerCommandPublisher
 
     public void NotifyPointerMove(long frame, Vector2 position)
     {
-        var worldPosition = _param.MainCamera.ScreenToWorldPoint(position);
-        _publisher.PublishAsync(new PointerMoveCommand { Frame = frame, Position = worldPosition });
+        _publisher.PublishAsync(new PointerMoveCommand { Frame = frame, Position = ToWorldPosition(position) });
     }
 
     public void NotifyPointerDown(long frame, Vector2 position)
     {
-        var worldPosition = _param.MainCamera.ScreenToWorldPoint(position);
-        _publisher.PublishAsync(new PointerDownCommand { Frame = frame, Position = worldPosition });
+        _publisher.PublishAsync(new PointerDownCommand { Frame = frame, Position = ToWorldPosition(position) });
     }
 
     public void NotifyPointerUp(long frame, Vector2 position)
     {
-        var worldPosition = _param.MainCamera.ScreenToWorldPoint(position);
-        _publisher.PublishAsync(new PointerUpCommand { Frame = frame, Position = worldPosition });
+        _publisher.PublishAsync(new PointerUpCommand { Frame = frame, Position = ToWorldPosition(position) });
     }
+
+    Vector2 ToWorldPosition(Vector2 position) => _param.MainCamera.ScreenToWorldPoint(position);
 }

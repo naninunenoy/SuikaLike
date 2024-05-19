@@ -37,6 +37,7 @@ namespace SuikaLike
             });
 
             builder.Register<IPointerCommandPublisher, SuikaController>(Lifetime.Scoped);
+            builder.Register<ISuikaFactory, SuikaFactory>(Lifetime.Scoped);
 
             builder.RegisterEntryPoint<GameEntryPoint>();
         }
