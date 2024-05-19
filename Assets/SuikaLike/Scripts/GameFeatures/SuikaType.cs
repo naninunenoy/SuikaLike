@@ -42,4 +42,21 @@ public static class SuikaTypeExtensions
             _ => "😀",
         };
     }
+
+    public static bool TryGetNextEvolution(this SuikaType type, out SuikaType nextType)
+    {
+        nextType = type switch
+        {
+            SuikaType.Smallest => SuikaType.Tiny,
+            SuikaType.Tiny => SuikaType.Normal,
+            SuikaType.Normal => SuikaType.Large,
+            SuikaType.Large => SuikaType.Huge,
+            SuikaType.Huge => SuikaType.Gigantic,
+            SuikaType.Gigantic => SuikaType.Biggest,
+            //SuikaType.Biggest => SuikaType.Smallest,
+            _ => SuikaType.Normal,
+        };
+        // Biggestの次はない
+        return type != SuikaType.Biggest;
+    }
 }

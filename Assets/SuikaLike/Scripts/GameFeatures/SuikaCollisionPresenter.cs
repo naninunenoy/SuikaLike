@@ -10,6 +10,7 @@ namespace SuikaLike.GameFeatures;
 public partial class SuikaCollisionPresenter : ICollisionCalculator
 {
     [Inject] readonly SuikaContainer _container;
+    [Inject] readonly ICommandPublisher _commandPublisher;
     readonly List<SuikaCollisionCommand> _commandList = new();
 
     public void __DontCallMe(SuikaCollisionCommand command)
@@ -24,14 +25,16 @@ public partial class SuikaCollisionPresenter : ICollisionCalculator
         // 衝突の評価を行う
         foreach (var command in _commandList)
         {
-            Debug.Log($"{command.MyId.Value} hit {command.OtherId.Value} at frame {command.Frame}");
             if (_container.TryGetById(command.MyId, out var mySuika) &&
                 _container.TryGetById(command.OtherId, out var otherSuika))
             {
                 // 同種のスイカが書突した場合は進化する
                 if (mySuika.Type == otherSuika.Type)
                 {
-                    Debug.Log($"進化 from {mySuika.Type}");
+                    _commandPublisher.PublishAsync(new SameTypeSuikaCollisionCommand
+                    {
+                        OriginalType = mySuika.Type, Originals = new[] { mySuika, otherSuika },
+                    });
                 }
             }
         }
