@@ -1,18 +1,31 @@
-﻿using VContainer;
+﻿using System;
+using R3;
+using VContainer;
 using VitalRouter;
 
 namespace SuikaLike.GameFeatures;
 
 [Routes]
-public partial class SuikaSpawnPresenter
+public partial class SuikaSpawnPresenter : IDisposable
 {
     [Inject] readonly ISuikaFactory _factory;
     [Inject] readonly SuikaContainer _container;
 
+    readonly Subject<Unit> _spawnByClick = new();
+    SuikaType _nextSpawnType = SuikaType.Smallest;
+
+    public void NotifyNextSpawnType(SuikaType type)
+    {
+        _nextSpawnType = type;
+    }
+
+    public Observable<Unit> SpawnByClick => _spawnByClick;
+
     public void __DontCallMe(PointerUpCommand command)
     {
-        var suika = _factory.SpawnSuika(_factory.GetNextSuika(), command.Position);
+        var suika = _factory.SpawnSuika(_nextSpawnType, command.Position);
         _container.Add(suika);
+        _spawnByClick.OnNext(Unit.Default);
     }
 
     public void __DontCallMe(SameTypeSuikaCollisionCommand command)
@@ -33,5 +46,10 @@ public partial class SuikaSpawnPresenter
             var suika = _factory.SpawnSuika(nextType, centerOfPositions);
             _container.Add(suika);
         }
+    }
+
+    public void Dispose()
+    {
+        _spawnByClick.Dispose();
     }
 }

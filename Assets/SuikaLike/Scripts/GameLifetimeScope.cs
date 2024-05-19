@@ -29,7 +29,7 @@ namespace SuikaLike
             builder.RegisterVitalRouter(routing =>
             {
                 routing.Map<SuikaSpawnPresenter>();
-                routing.Map<SuikaCollisionPresenter>().AsSelf().AsImplementedInterfaces();
+                routing.Map<SuikaCollisionPresenter>();
                 routing.Map<SuikaScorePresenter>();
             });
 

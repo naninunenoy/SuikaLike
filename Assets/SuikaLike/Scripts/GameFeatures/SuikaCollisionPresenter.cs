@@ -6,7 +6,7 @@ using VitalRouter;
 namespace SuikaLike.GameFeatures;
 
 [Routes]
-public partial class SuikaCollisionPresenter : ICollisionCalculator
+public partial class SuikaCollisionPresenter
 {
     [Inject] readonly SuikaContainer _container;
     [Inject] readonly ICommandPublisher _commandPublisher;

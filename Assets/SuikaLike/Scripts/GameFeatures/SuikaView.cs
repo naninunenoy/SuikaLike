@@ -8,7 +8,6 @@ namespace SuikaLike.GameFeatures
         [SerializeField] TextMeshProUGUI _emoji;
         [SerializeField] TextMeshProUGUI _score;
 
-
         public void SetNextEmoji(string emoji)
         {
             _emoji.text = emoji;
