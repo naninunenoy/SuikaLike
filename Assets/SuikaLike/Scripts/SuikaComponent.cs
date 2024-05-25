@@ -17,6 +17,8 @@ namespace SuikaLike
         public TextMeshPro Text => _text;
         public CapsuleCollider2D Collider => _collider;
 
+        public SuikaId Id { set; get; } = SuikaId.Zero;
+
         void Start()
         {
             _collider.OnCollisionEnter2DAsObservable()
@@ -24,12 +26,10 @@ namespace SuikaLike
                 {
                     if (hit.gameObject.TryGetComponent<SuikaComponent>(out var otherSuika))
                     {
-                        var otherId = new SuikaId(otherSuika.gameObject.GetHashCode());
-                        var myId = new SuikaId(gameObject.GetHashCode());
                         _commandPublisher.PublishAsync(new SuikaCollisionCommand
                         {
-                            MyId = myId,
-                            OtherId = otherId,
+                            MyId = Id,
+                            OtherId = otherSuika.Id,
                             Frame = Time.frameCount
                         });
                     }

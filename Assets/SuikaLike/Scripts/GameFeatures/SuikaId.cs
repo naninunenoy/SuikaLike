@@ -35,4 +35,7 @@ public readonly struct SuikaId : IEquatable<SuikaId>
     {
         return !left.Equals(right);
     }
+
+    public static SuikaId Zero { get; } = new(0);
+    public bool IsZero => Value == 0;
 }

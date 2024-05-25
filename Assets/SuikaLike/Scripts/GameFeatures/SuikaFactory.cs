@@ -21,6 +21,7 @@ public class SuikaFactory : ISuikaFactory
         var suikaGo = _resolver.Instantiate(_param.SuikaPrefab, position, Quaternion.identity, _param.BoxTransform);
         var suikaCmp = suikaGo.GetComponent<SuikaComponent>();
         var suikaId = new SuikaId(suikaGo.GetHashCode());
+        suikaCmp.Id = suikaId;
         var emoji = type.GetEmoji();
         suikaCmp.Text.text = emoji;
         var size = type.GetSize();
