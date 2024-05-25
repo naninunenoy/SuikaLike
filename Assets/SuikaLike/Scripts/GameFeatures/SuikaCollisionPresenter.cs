@@ -8,7 +8,7 @@ namespace SuikaLike.GameFeatures;
 [Routes]
 public partial class SuikaCollisionPresenter
 {
-    [Inject] readonly SuikaContainer _container;
+    [Inject] readonly ISuikaIdResolver _suikaResolver;
     [Inject] readonly ICommandPublisher _commandPublisher;
     readonly List<SuikaCollisionCommand> _commandList = new();
 
@@ -24,8 +24,8 @@ public partial class SuikaCollisionPresenter
         // 衝突の評価を行う
         foreach (var command in _commandList)
         {
-            if (_container.TryGetById(command.MyId, out var mySuika) &&
-                _container.TryGetById(command.OtherId, out var otherSuika))
+            if (_suikaResolver.TryGetById(command.MyId, out var mySuika) &&
+                _suikaResolver.TryGetById(command.OtherId, out var otherSuika))
             {
                 // 同種のスイカが書突した場合は進化する
                 if (mySuika.Type == otherSuika.Type)
