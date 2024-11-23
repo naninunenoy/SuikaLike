@@ -83,3 +83,4 @@ crashlytics-build.properties
 /[Aa]ssets/ExGallery/Sandbox/SandboxResources/*.mp4.meta
 /[Aa]ssets/ExGallery/Sandbox/SandboxResources/*.webm
 /[Aa]ssets/ExGallery/Sandbox/SandboxResources/*.webm.meta
+.DS_Store
