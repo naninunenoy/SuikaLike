@@ -8,7 +8,7 @@
       "url": "https://package.openupm.com"
     },
     "com.cysharp.r3": {
-      "version": "1.1.11",
+      "version": "1.2.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -21,7 +21,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "fbe0bf85155f42f8832205f7b3ac3df571ada33e"
+      "hash": "f9fd769be7c634610f2a61aa914a1a55f34740e1"
     },
     "com.kyub.emojisearch": {
       "version": "https://github.com/mingos/com.kyub.emojisearch.git?path=/Assets/KyubEmojiSearchAPI",
@@ -59,8 +59,8 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.2d.sprite": "1.0.0",
         "com.unity.2d.common": "6.0.6",
+        "com.unity.2d.sprite": "1.0.0",
         "com.unity.mathematics": "1.2.6",
         "com.unity.modules.animation": "1.0.0"
       },
@@ -71,11 +71,11 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {
+        "com.unity.burst": "1.8.4",
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.mathematics": "1.1.0",
-        "com.unity.modules.uielements": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.burst": "1.8.4"
+        "com.unity.modules.uielements": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -107,8 +107,8 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.mathematics": "1.1.0",
         "com.unity.2d.common": "9.0.7",
+        "com.unity.mathematics": "1.1.0",
         "com.unity.modules.physics2d": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -127,8 +127,8 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.modules.tilemap": "1.0.0",
         "com.unity.2d.tilemap": "1.0.0",
+        "com.unity.modules.tilemap": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -156,8 +156,8 @@
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.8.17",
-        "com.unity.nuget.mono-cecil": "1.11.4",
         "com.unity.test-framework": "1.4.5",
+        "com.unity.nuget.mono-cecil": "1.11.4",
         "com.unity.test-framework.performance": "3.0.3"
       },
       "url": "https://packages.unity.com"
@@ -185,7 +185,7 @@
       }
     },
     "com.unity.ide.rider": {
-      "version": "3.0.31",
+      "version": "3.0.34",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -326,9 +326,9 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {
+        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.director": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -353,18 +353,18 @@
       "url": "https://packages.unity.com"
     },
     "jp.hadashikick.vcontainer": {
-      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.15.4",
+      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.16.5",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "58610810240efebe27b982a3adfb8405c57320a2"
+      "hash": "dda70a5b210c8b8d373bd957c715e9149779dd76"
     },
     "jp.hadashikick.vitalrouter": {
-      "version": "https://github.com/hadashiA/VitalRouter.git?path=/src/VitalRouter.Unity/Assets/VitalRouter#0.8.1",
+      "version": "https://github.com/hadashiA/VitalRouter.git?path=/src/VitalRouter.Unity/Assets/VitalRouter#1.6.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "c261b0cf9e588260cb803b23bbae12967ee4b52c"
+      "hash": "300188b39cd6be9233ad91008b372b31f709809b"
     },
     "org.nuget.microsoft.bcl.asyncinterfaces": {
       "version": "6.0.0",
@@ -385,7 +385,7 @@
       "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "org.nuget.r3": {
-      "version": "1.1.11",
+      "version": "1.2.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
